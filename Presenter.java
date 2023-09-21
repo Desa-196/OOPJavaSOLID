@@ -6,6 +6,6 @@ public class Presenter {
         this.view = view;
     }
     public void run(){
-        
+        System.out.println(view.mainMenu());
     }
 }

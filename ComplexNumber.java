@@ -1,7 +1,7 @@
 public class ComplexNumber {
-    
-    private double real;
-    public double getReal(){
+
+    private final double real;
+    public final double getReal(){
         return real;
     }
     private double imaginary;
@@ -13,5 +13,9 @@ public class ComplexNumber {
     {
         this.real = real;
         this.imaginary = imaginary;
+    }
+    @Override
+    public String toString(){
+        return String.format("%s + %s*i", real, imaginary);
     }
 }

@@ -4,5 +4,6 @@ class Main{
         View view = new View();
         Presenter presenter = new Presenter(view, model);
         presenter.run();
+        
     }
 }
