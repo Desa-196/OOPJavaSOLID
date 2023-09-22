@@ -15,13 +15,27 @@ public class View {
         System.out.println("\t 2. Разделить одно комплексное число на другое");
         System.out.println("\t 3. Вычесть одно комплексное число из другое");
         System.out.println("\t 4. Выйти из программы");
-        System.out.print("Введите необходимый пункт меню:");
 
-        return readIntFromConsole();
+        return readIntFromConsole("Введите необходимый пункт меню:");
+    }
+    public double getRealNumberA(){
+        return readFloatFromConsole("Введите действительную часть первого числа:");
+    }
+    public double getimagInaryNumberA(){
+        return readFloatFromConsole("Введите мнимую часть первого числа:");
+    }
+    public double getRealNumberB(){
+        return readFloatFromConsole("Введите действительную часть второго числа:");
+    }
+    public double getimagInaryNumberB(){
+        return readFloatFromConsole("Введите мнимую часть второго числа:");
+    }
+    public void viewResult(ComplexNumber result){
+        System.out.println("\nРезультат выполнения операции: " + result + "\n");
     }
 
-    public float readFloatFromConsole() {
-        System.out.print("Введите число: ");
+    public float readFloatFromConsole(String text) {
+        System.out.print(text);
         while (!input.hasNextFloat()) {
             System.out.print("Ошибка ввода, повторите ввод: ");
             input.nextLine();
@@ -31,8 +45,8 @@ public class View {
         return number;
     }
 
-    public int readIntFromConsole() {
-        System.out.print("Введите число: ");
+    public int readIntFromConsole(String text) {
+        System.out.print(text);
         while (!input.hasNextInt()) {
             System.out.print("Ошибка ввода, повторите ввод: ");
             input.nextLine();
