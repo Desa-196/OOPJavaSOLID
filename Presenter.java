@@ -15,14 +15,13 @@ public class Presenter {
             int menuItem = view.mainMenu();
             logger.writeLog("Выбран пункт меню" + menuItem);
             ComplexOperation[] operations = new ComplexOperation[] {
-                new MultiplyOperation(),
-                new DevideOperation(),
-                new SumOperation()
+                    new MultiplyOperation(),
+                    new DevideOperation(),
+                    new SumOperation()
             };
             ComplexNumber[] complexNumbers;
 
-            switch(menuItem)
-            {
+            switch (menuItem) {
                 case 1:
                 case 2:
                 case 3:
@@ -32,8 +31,12 @@ public class Presenter {
                                     "Введены значения: a1 = %s, b1 = %s, a2 = %s, b2 = %s",
                                     complexNumbers[0].getReal(), complexNumbers[0].getImaginary(),
                                     complexNumbers[1].getReal(), complexNumbers[0].getImaginary()));
-                    //передаем полученные комплексные числа и операцию которую необходимо с ними произвести в модель, результат отдаем в view
-                    view.viewResult(model.calculate(complexNumbers[0], complexNumbers[1], operations[menuItem - 1]));   
+                    // передаем полученные комплексные числа и операцию которую необходимо с ними
+                    // произвести в модель, результат отдаем в view
+                    ComplexNumber result = model.calculate(complexNumbers[0], complexNumbers[1],
+                            operations[menuItem - 1]);
+                    logger.writeLog(String.format("Результат вычислений: %s", result));
+                    view.viewResult(result);
                 case 4:
                     flag = false;
                     break;
