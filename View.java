@@ -3,13 +3,15 @@ import java.util.Scanner;
 public class View {
     Scanner input;
 
-    public void hello(){
+    public void hello() {
         System.out.println("Программа Калькулятор комплексных чисел.");
     }
-        public View() {
-            input = new Scanner(System.in);
+
+    public View() {
+        input = new Scanner(System.in);
     }
-    public int mainMenu(){
+
+    public int mainMenu() {
         System.out.println("Меню:");
         System.out.println("\t 1. Умножить два комплексных числа");
         System.out.println("\t 2. Разделить одно комплексное число на другое");
@@ -18,19 +20,19 @@ public class View {
 
         return readIntFromConsole("Введите необходимый пункт меню:");
     }
-    public double getRealNumberA(){
-        return readFloatFromConsole("Введите действительную часть первого числа:");
+
+    public ComplexNumber[] getComplexNumberFromConsole(){
+        return new ComplexNumber[]{
+            new ComplexNumber(
+                readFloatFromConsole("Введите действительную часть первого числа:"),
+                readFloatFromConsole("Введите мнимую часть первого числа:")),
+            new ComplexNumber(
+                readFloatFromConsole("Введите действительную часть второго числа:"),
+                readFloatFromConsole("Введите мнимую часть второго числа:"))
+        };
     }
-    public double getimagInaryNumberA(){
-        return readFloatFromConsole("Введите мнимую часть первого числа:");
-    }
-    public double getRealNumberB(){
-        return readFloatFromConsole("Введите действительную часть второго числа:");
-    }
-    public double getimagInaryNumberB(){
-        return readFloatFromConsole("Введите мнимую часть второго числа:");
-    }
-    public void viewResult(ComplexNumber result){
+
+    public void viewResult(ComplexNumber result) {
         System.out.println("\nРезультат выполнения операции: " + result + "\n");
     }
 
